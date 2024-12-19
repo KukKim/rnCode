@@ -10,6 +10,7 @@ import {
   OptionScreen,
   LoginScreen,
   SignupScreen,
+  TestStyleScreen,
 } from './src/screens';
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,8 @@ function RootStack() {
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Options" component={OptionScreen} />
+        <Stack.Screen name="TestStyle" component={TestStyleScreen} />
+
         <Stack.Group screenOptions={{presentation: 'modal'}}>
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />

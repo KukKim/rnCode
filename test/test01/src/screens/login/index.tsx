@@ -7,13 +7,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import CommonContainer from 'components/container/commonContainer';
 import CommonTextInput from 'components/textInput/commonTextInput';
 import CommonButton from 'components/button/commonButton';
 
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles.background}>
+    <CommonContainer>
       <Text>LoginScreen</Text>
       <View>
         <CommonTextInput style={styles.textInput} placeholder="ID" />
@@ -30,14 +31,11 @@ const LoginScreen: React.FC = () => {
           </CommonButton>
         </View>
       </View>
-    </SafeAreaView>
+    </CommonContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-  },
   textInput: {
     borderBottomWidth: 1,
   },

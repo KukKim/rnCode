@@ -6,18 +6,20 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import CommonContainer from 'components/container/commonContainer';
 import CharacterCard from 'components/card/character';
+import CommonButton from 'components/button/commonButton';
 import {useNavigation} from '@react-navigation/native';
 
 const MainTab: React.FC = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-      }}>
+    <CommonContainer>
+      <CommonButton onPress={() => navigation.navigate('TestStyle')}>
+        <Text>Style Test Page</Text>
+      </CommonButton>
       <FlatList data={[1, 2, 3]} renderItem={({item}) => <CharacterCard />} />
-    </SafeAreaView>
+    </CommonContainer>
   );
 };
 
