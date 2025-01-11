@@ -15,6 +15,7 @@ import {
 } from './src/screens';
 
 const Stack = createNativeStackNavigator();
+// store.dispatch()
 
 function RootStack() {
   return (
