@@ -9,8 +9,10 @@ module.exports = {
           components: './src/components',
           features: './src/features',
           reducers: './src/reducers',
+          types: './src/types',
         },
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };

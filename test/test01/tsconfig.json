@@ -5,7 +5,8 @@
     "paths": {
       "components/*": ["src/components/*"],
       "features/*": ["src/features/*"],
-      "reducers/*": ["src/reducers/*"]
+      "reducers/*": ["src/reducers/*"],
+      "types/*": ["src/types/*"]
     }
   }
 }

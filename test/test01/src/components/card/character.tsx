@@ -9,9 +9,13 @@ import {
 } from 'react-native';
 import CommonButton from 'components/button/commonButton';
 
-const CharacterCard: React.FC = props => {
+type CharacterCardProps = {
+  data: any;
+};
+
+const CharacterCard: React.FC<CharacterCardProps> = props => {
   const [open, setOpen] = useState(0);
-  const data = props.data.item;
+  const data = props.data;
 
   return (
     <TouchableOpacity
@@ -22,14 +26,14 @@ const CharacterCard: React.FC = props => {
         <Image
           style={styles.characterImage}
           source={{
-            uri: data.profileImg,
+            uri: data?.profileImg,
           }}
         />
         <View>
-          <Text>{data.name}</Text>
+          <Text>{data?.name}</Text>
         </View>
       </View>
-      {open && (
+      {open ? (
         <View>
           <Text>Character Content</Text>
           <CommonButton>
@@ -38,7 +42,7 @@ const CharacterCard: React.FC = props => {
           <Text>Top Player</Text>
           <ScrollView></ScrollView>
         </View>
-      )}
+      ) : null}
     </TouchableOpacity>
   );
 };
