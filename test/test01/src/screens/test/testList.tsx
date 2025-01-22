@@ -30,10 +30,22 @@ const TestListScreen: React.FC = () => {
         onViewableItemsChanged={({viewableItems: vItems}) => {
           viewableItems.value = vItems;
         }}
-        data={characterInfo}
-        renderItem={item => (
-          <TestListItem data={item} viewableItems={viewableItems} />
-        )}
+        contentContainerStyle={{paddingTop: 40}}
+        data={characterInfo.map((item, index) => ({
+          ...item,
+          id: index,
+        }))}
+        renderItem={({item, index}) => {
+          return (
+            <TestListItem
+              data={{
+                id: index,
+                ...item,
+              }}
+              viewableItems={viewableItems}
+            />
+          );
+        }}
       />
     </CommonContainer>
   );

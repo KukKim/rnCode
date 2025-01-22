@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, ViewToken} from 'react-native';
-import Animated, {useAnimatedStyle} from 'react-native-reanimated';
+import {StyleSheet, TouchableOpacity, ViewToken} from 'react-native';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 import CharacterCard from 'components/card/character';
 
 type ListItemProps = {
@@ -8,17 +13,26 @@ type ListItemProps = {
   viewableItems: Animated.SharedValue<ViewToken[]>;
 };
 
-const testListItem: React.FC<ListItemProps> = props => {
-  const data = props.data.item;
+const testListItem: React.FC<ListItemProps> = ({data, viewableItems}) => {
   const rStyle = useAnimatedStyle(() => {
-    const isVisible = props.viewableItems.value.map;
+    const isVisible = Boolean(
+      viewableItems.value
+        .filter(item => item.isViewable)
+        .find(item => item.item.id === data.id),
+    );
+
     return {
-      opacity: 1,
+      opacity: withTiming(isVisible ? 1 : 0),
+      transform: [
+        {
+          scale: withTiming(isVisible ? 1 : 0.6),
+        },
+      ],
     };
   }, []);
 
   return (
-    <Animated.View>
+    <Animated.View style={[rStyle]}>
       <CharacterCard data={data} />
     </Animated.View>
   );
