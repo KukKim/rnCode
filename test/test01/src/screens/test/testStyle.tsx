@@ -17,6 +17,9 @@ const TestStyleScreen: React.FC = () => {
               'https://i.namu.wiki/i/rlVjGzjT-hpX9PjKJ3TMOgwbQJuL8OmzkF9ycg2pDyCV3YOvhgaLV8WmpyZMg7Ks2tFM203nMUdpMDGwuf13BeVB_waZiXegGgU8-9grGBoCsm6p9QWP5yZsy9YUaaH71tOeSnSOLtVQjmp-MXuOmQ.webp',
           }}
         />
+        <Text>Font Test</Text>
+        <Text>Normal test</Text>
+        <Text style={styles.testFont}>Roboto test</Text>
       </ScrollView>
     </CommonContainer>
   );
@@ -25,6 +28,9 @@ const TestStyleScreen: React.FC = () => {
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
+  },
+  testFont: {
+    fontFamily: 'Roboto-Medium',
   },
 });
 

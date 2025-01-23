@@ -6,7 +6,8 @@
       "components/*": ["src/components/*"],
       "features/*": ["src/features/*"],
       "reducers/*": ["src/reducers/*"],
-      "types/*": ["src/types/*"]
+      "types/*": ["src/types/*"],
+      "assets/*": ["src/assets/*"]
     }
   }
 }

@@ -4,6 +4,7 @@ import * as React from 'react';
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import store from './src/store';
 import {
   HomeScreen,
@@ -20,19 +21,21 @@ const Stack = createNativeStackNavigator();
 function RootStack() {
   return (
     <Provider store={store}>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Options" component={OptionScreen} />
-        <Stack.Screen name="TestStyle" component={TestStyleScreen} />
-        <Stack.Screen name="TestList" component={TestListScreen} />
+      <GestureHandlerRootView>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Options" component={OptionScreen} />
+          <Stack.Screen name="TestStyle" component={TestStyleScreen} />
+          <Stack.Screen name="TestList" component={TestListScreen} />
 
-        <Stack.Group screenOptions={{presentation: 'modal'}}>
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Signup" component={SignupScreen} />
-        </Stack.Group>
-      </Stack.Navigator>
+          <Stack.Group screenOptions={{presentation: 'modal'}}>
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Signup" component={SignupScreen} />
+          </Stack.Group>
+        </Stack.Navigator>
+      </GestureHandlerRootView>
     </Provider>
   );
 }

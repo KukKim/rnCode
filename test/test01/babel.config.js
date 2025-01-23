@@ -10,6 +10,7 @@ module.exports = {
           features: './src/features',
           reducers: './src/reducers',
           types: './src/types',
+          assets: './src/assets',
         },
       },
     ],

@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
+import {ArrowLeft} from 'assets/svg';
 import {useNavigation} from '@react-navigation/native';
 
 const CommonHeader = (props: ViewProps) => {
@@ -15,7 +16,7 @@ const CommonHeader = (props: ViewProps) => {
         onPress={() => {
           navigation.goBack();
         }}>
-        <Text>Back</Text>
+        <ArrowLeft width={20} height={20} />
       </TouchableOpacity>
     </View>
   );
