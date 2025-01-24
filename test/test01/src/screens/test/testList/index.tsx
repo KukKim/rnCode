@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, Text, ViewToken, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {useSharedValue} from 'react-native-reanimated';
-import {fetchCharacters} from 'reducers/character';
-import CommonHeader from 'components/header/commonHeader';
 import CommonContainer from 'components/container/commonContainer';
-import TestListItem from './testListItem';
+import CommonHeader from 'components/header/commonHeader';
+import React, {useEffect, useState} from 'react';
+import {FlatList, StyleSheet, Text, ViewToken} from 'react-native';
+import {useSharedValue} from 'react-native-reanimated';
 import {useDispatch, useSelector} from 'react-redux';
+import {fetchCharacters} from 'reducers/character';
+
+import TestListItem from './testListItem';
 
 const TestListScreen: React.FC = () => {
   const navigation = useNavigation();

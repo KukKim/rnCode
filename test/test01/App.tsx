@@ -13,6 +13,8 @@ import {
   SignupScreen,
   TestStyleScreen,
   TestListScreen,
+  TestPanresponderScreen,
+  TestTabScreen,
 } from './src/screens';
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +31,11 @@ function RootStack() {
           <Stack.Screen name="Options" component={OptionScreen} />
           <Stack.Screen name="TestStyle" component={TestStyleScreen} />
           <Stack.Screen name="TestList" component={TestListScreen} />
+          <Stack.Screen
+            name="TestPanresponder"
+            component={TestPanresponderScreen}
+          />
+          <Stack.Screen name="TestTab" component={TestTabScreen} />
 
           <Stack.Group screenOptions={{presentation: 'modal'}}>
             <Stack.Screen name="Login" component={LoginScreen} />

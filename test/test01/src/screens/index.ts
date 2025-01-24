@@ -4,6 +4,8 @@ import LoginScreen from './login';
 import SignupScreen from './signup';
 import TestStyleScreen from './test/testStyle';
 import TestListScreen from './test/testList';
+import TestPanresponderScreen from './test/testPanresponder';
+import TestTabScreen from './test/testTab';
 
 export {
   HomeScreen,
@@ -12,4 +14,6 @@ export {
   SignupScreen,
   TestStyleScreen,
   TestListScreen,
+  TestPanresponderScreen,
+  TestTabScreen,
 };

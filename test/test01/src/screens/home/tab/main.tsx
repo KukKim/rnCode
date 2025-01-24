@@ -13,6 +13,12 @@ const MainTab: React.FC = () => {
       <CommonButton onPress={() => navigation.navigate('TestList')}>
         <Text>Style List Page</Text>
       </CommonButton>
+      <CommonButton onPress={() => navigation.navigate('TestPanresponder')}>
+        <Text>Panresponder Page</Text>
+      </CommonButton>
+      <CommonButton onPress={() => navigation.navigate('TestTab')}>
+        <Text>Tab Page</Text>
+      </CommonButton>
     </CommonContainer>
   );
 };
