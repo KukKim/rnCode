@@ -1,12 +1,7 @@
+import CharacterCard from 'components/card/character';
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, TouchableOpacity, ViewToken} from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from 'react-native-reanimated';
-import CharacterCard from 'components/card/character';
+import Animated, {useAnimatedStyle, withTiming} from 'react-native-reanimated';
 
 type ListItemProps = {
   data: any;

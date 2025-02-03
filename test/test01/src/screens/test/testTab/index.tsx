@@ -1,15 +1,17 @@
-import React, {useState, useCallback} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  UIManager,
-  Platform,
-  TouchableOpacity,
-} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import CommonHeader from 'components/header/commonHeader';
 import CommonContainer from 'components/container/commonContainer';
+import CommonHeader from 'components/header/commonHeader';
+import React, {useCallback, useState} from 'react';
+import {
+  LayoutAnimation,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  UIManager,
+  View,
+} from 'react-native';
+
 import TabComponent1 from './tabComponent1';
 import TabComponent2 from './tabComponent2';
 import TabComponent3 from './tabComponent3';
@@ -60,7 +62,10 @@ const TestTabScreen: React.FC = () => {
             return (
               <TouchableOpacity
                 style={styles.tabBtn}
-                onPress={() => setSelectedTab(index)}>
+                onPress={() => {
+                  LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+                  setSelectedTab(index);
+                }}>
                 <Text style={titleStyle}>{item.tabTitle}</Text>
               </TouchableOpacity>
             );

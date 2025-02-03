@@ -1,13 +1,14 @@
+import CommonButton from 'components/button/commonButton';
 import React, {useState} from 'react';
 import {
-  View,
-  Text,
   Image,
   ScrollView,
   StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
-import CommonButton from 'components/button/commonButton';
+import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 
 type CharacterCardProps = {
   data: any;
@@ -17,33 +18,41 @@ const CharacterCard: React.FC<CharacterCardProps> = props => {
   const [open, setOpen] = useState(0);
   const data = props.data;
 
-  return (
-    <TouchableOpacity
-      style={styles.container}
-      // activeOpacity={0.5}
-      onPress={() => setOpen(!open)}>
-      <View style={styles.flexDirectionRow}>
-        <Image
-          style={styles.characterImage}
-          source={{
-            uri: data?.profileImg,
-          }}
-        />
-        <View>
-          <Text>{data?.name}</Text>
-        </View>
-      </View>
-      {open ? (
-        <View>
-          <Text>Character Content</Text>
-          <CommonButton>
-            <Text>Command List</Text>
-          </CommonButton>
-          <Text>Top Player</Text>
-          <ScrollView></ScrollView>
-        </View>
-      ) : null}
+  const renderRightActions = () => (
+    <TouchableOpacity style={styles.swipedItem} onPress={() => {}}>
+      <Text>Do Somtething</Text>
     </TouchableOpacity>
+  );
+
+  return (
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableOpacity
+        style={styles.container}
+        // activeOpacity={0.5}
+        onPress={() => setOpen(!open)}>
+        <View style={styles.flexDirectionRow}>
+          <Image
+            style={styles.characterImage}
+            source={{
+              uri: data?.profileImg,
+            }}
+          />
+          <View>
+            <Text>{data?.name}</Text>
+          </View>
+        </View>
+        {open ? (
+          <View>
+            <Text>Character Content</Text>
+            <CommonButton>
+              <Text>Command List</Text>
+            </CommonButton>
+            <Text>Top Player</Text>
+            <ScrollView></ScrollView>
+          </View>
+        ) : null}
+      </TouchableOpacity>
+    </Swipeable>
   );
 };
 
@@ -68,6 +77,10 @@ const styles = StyleSheet.create({
   characterImage: {
     width: 50,
     height: 50,
+  },
+  swipedItem: {
+    justifyContent: 'center',
+    padding: 5,
   },
 });
 

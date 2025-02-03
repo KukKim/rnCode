@@ -1,7 +1,7 @@
-import {Text} from 'react-native';
-import CommonContainer from 'components/container/commonContainer';
-import CommonButton from 'components/button/commonButton';
 import {useNavigation} from '@react-navigation/native';
+import CommonButton from 'components/button/commonButton';
+import CommonContainer from 'components/container/commonContainer';
+import {Text} from 'react-native';
 
 const MainTab: React.FC = () => {
   const navigation = useNavigation();
@@ -18,6 +18,9 @@ const MainTab: React.FC = () => {
       </CommonButton>
       <CommonButton onPress={() => navigation.navigate('TestTab')}>
         <Text>Tab Page</Text>
+      </CommonButton>
+      <CommonButton onPress={() => navigation.navigate('TestNavigation')}>
+        <Text>Navigation test Page</Text>
       </CommonButton>
     </CommonContainer>
   );
